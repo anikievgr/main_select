@@ -15,7 +15,7 @@ class SelectController extends Controller
         if ($search == 'all'){
             $list = User::select('name','id')->where('id', '!=', $exception)->skip($list)->take(20)->get();
         }else{
-            $list = User::select('name','id')->where('id', '!=', $exception)->where('name', 'like', '%' . $search . '%')->skip($list)->take(20)->get();
+            $list = User::select('name','id')->where('name', 'like', '%' . $search . '%')->where('id', '!=', $exception)->skip($list)->take(20)->get();
 //                DB::table('users')
 //                    ->where('id', '!=',    $exception)
 //                    ->where('name', 'like', '%' . $search . '%')
