@@ -18,12 +18,12 @@
         <div class="row">
             <div class="w-50 mx-auto mt-5">
                 <div class="main_select">
-                    <input id="input_select" class="w-100" type="text">
-                    <ul id="select_content" class="w-100">
-                        @foreach($users as $user)
-                            <li id="{{$user->id}}" class="w-100">{{$user->name}}</li>
-                        @endforeach
-                    </ul>
+                    <div id="select_content" class="result"></div>
+                    <div class="arrow"></div>
+                    <div class="list" >
+                        <div class="search_bar"><input  class="w-100" type="text"></div>
+                        <ul id="input_select"  class="w-100"></ul>
+                    </div>
                 </div>
                 <p>dsds</p>
             </div>

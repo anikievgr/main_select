@@ -9,11 +9,21 @@ use Illuminate\Support\Facades\DB;
 class SelectController extends Controller
 {
     public function index(){
-        $users = User::query()->take(10)->get();
-        return view('select', compact('users'));
+        return view('select');
     }
-    public function search($list){
-        $list = DB::table('users')->select('name', 'id')->skip($list)->take(2)->get();
+    public function search($list, $search, $exception){
+        if ($search == 'all'){
+            $list = User::select('name','id')->where('id', '!=', $exception)->skip($list)->take(20)->get();
+        }else{
+            $list = User::select('name','id')->where('id', '!=', $exception)->where('name', 'like', '%' . $search . '%')->skip($list)->take(20)->get();
+//                DB::table('users')
+//                    ->where('id', '!=',    $exception)
+//                    ->where('name', 'like', '%' . $search . '%')
+//                    ->offset($list)
+//                    ->limit(10)
+//                    ->get();
+        }
+
         return response()->json($list);
     }
 }

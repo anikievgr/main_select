@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\SelectController::class, 'index'] );
-Route::get('/search/{list}', [App\Http\Controllers\SelectController::class, 'search'] );
+Route::get('/search/{list}/{search}/{exception}', [App\Http\Controllers\SelectController::class, 'search'] );
