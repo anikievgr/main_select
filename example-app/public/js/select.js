@@ -67,8 +67,9 @@ input.addEventListener('input', function (evt) {
 })
 function ajax(num, value, exception) {
     $.ajax({
-        url: '/search/'+num+'/'+value+'/'+exception,
-        type: 'Get',
+        url: 'api/search',
+        type: 'POST',
+        data: {list: num, search: value, exception: exception},
     }).done(function (data) {
         for (index = 0; index < data.length; ++index) {
             let newLi = document.createElement('li')

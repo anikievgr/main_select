@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SelectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\SelectController::class, 'index'] );
-Route::get('/search/{list}/{search}/{exception}', [App\Http\Controllers\SelectController::class, 'search'] );
+Route::get('/', [SelectController::class, 'index'] );
+
